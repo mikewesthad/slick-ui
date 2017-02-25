@@ -88,7 +88,10 @@ Phaser.Plugin.SlickUI.prototype.getRenderer = function (name) {
     var theme = this.game.cache.getJSON('slick-ui-theme');
     var resolveObject = function(name) {
         var namespace = name.split('.');
-        var context = window;
+        // Context used to be hard-coded as window, instead use the SlickUI 
+        // variable and remove the first part of namespace if it is "SlickUI"
+        var context = SlickUI;
+        if (namespace[0] == "SlickUI") namespace.shift();
         for(var i in namespace) {
             context = context[namespace[i]];
         }
