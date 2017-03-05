@@ -43,7 +43,7 @@ SlickUI.Element.Slider.prototype.init = function() {
     this.onDragStart = new Phaser.Signal();
     this.onDrag = new Phaser.Signal();
     this.onDragStop = new Phaser.Signal();
-    this.displayGroup = game.add.group();
+    this.displayGroup = this.container.root.game.add.group();
 
     var x = this.container.x + this._x;
     var y = this.container.y + this._y;
